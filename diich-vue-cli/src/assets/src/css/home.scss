@@ -8,6 +8,7 @@
   -ms-user-select: none; /*IE10*/
   -khtml-user-select: none; /*早期浏览器*/
   user-select: none;
+  font-family: '微软雅黑','苹方';
 }
 html{
   box-sizing: border-box;
@@ -27,9 +28,18 @@ html{
     content: '';
   }
 }
-html,body,.box{
+
+html,body{
   @extend %full;
-  //overflow: hidden;
+  overflow: hidden;
+}
+#app,.box,.row_box{
+  height: 100%;
+}
+.row_box{
+  &>div{
+    height: 100%;
+  }
 }
 
 .box{

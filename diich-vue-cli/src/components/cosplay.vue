@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="container-fluid">
+  <div style="height: 100%;">
+    <div class="container-fluid" style="height: 100%;">
       <div class="row">
         <div class="col-sm-12 home_configure">
           <h3 class="text-primary">角色管理<small>&nbsp;&nbsp;分配角色的操作权限</small></h3>
@@ -18,10 +18,13 @@
           <router-link to="/cosplay/list" class="btn btn-primary creaList">查看列表</router-link>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-12" style="box-shadow: 1px 1px 10px rgba(0,0,0,0.5); min-height: 480px; border-radius: 10px;">
+      <div class="row" style="height: 68%;">
+        <div class="col-sm-12" style="box-shadow: 1px 1px 10px rgba(0,0,0,0.5); height: 100%; border-radius: 10px; overflow: auto;">
           <router-view></router-view>
         </div>
+      </div>
+      <div>
+        <p class="text-right text-muted" style="margin-top: 10px;">2018 @ FeiYi All rights reserved</p>
       </div>
 
 

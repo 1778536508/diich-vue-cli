@@ -1,34 +1,52 @@
 <template>
   <div class="row">
-    <div class="container-fluid">
-        <h3 class="text-primary">角色添加 <small>为保证数据安全请合理添加权限</small></h3>
-        <small>角色标识案例: <code>ROLE_USER_ADD</code> 如有问题请联系技术</small>
-        <div class="col-sm-12" style="border-bottom: 2px solid rgba(0,0,0,0.2); margin-top: 10px;margin-bottom: 20px;"></div>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-5">
-              <form action="" class="form-horizontal">
-                  <div class="form-group">
-                      <label for="name" class="control-label col-sm-3">角色名称:</label>
-                      <div class="col-sm-6">
-                        <input type="text" class="form-control" id="name" placeholder="请输入角色名称">
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <label for="attribute" class="control-label col-sm-3">角色属性:</label>
-                      <div class="col-sm-6">
-                        <input type="text" class="form-control" id="attribute" placeholder="请输入角色属性">
-                      </div>
-                  </div>
-              </form>
-            </div>
-            <div class="col-sm-6">
-              <ul id="treeDemo" class="ztree" style="margin: 0 auto;"></ul>
-            </div>
-        </div>
-    </div>
+    <form action="" class="form-horizontal">
+      <div class="container-fluid">
+          <h3 class="text-primary">角色添加 <small>为保证数据安全请合理添加权限</small></h3>
+          <small>角色标识案例: <code>ROLE_USER_ADD</code> 如有问题请联系技术</small>
+          <div class="col-sm-12" style="border-bottom: 2px solid rgba(0,0,0,0.2); margin-top: 10px;margin-bottom: 20px;"></div>
+      </div>
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-sm-5">
 
+                    <div class="form-group">
+                        <label for="name" class="control-label col-sm-3">角色名称:</label>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control" id="name" placeholder="请输入角色名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-sm-6 col-sm-offset-3">
+                          <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle" style="min-width: 120px;">
+                            <b id="value_cos">角色属性</b>
+                            <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu" role="menu" id="menu">
+                            <li data-val="项目"><a href="javascript:;">项目</a></li>
+                            <li data-val="传承人"><a href="javascript:">传承人</a></li>
+                            <li data-val="机构"><a href="javascript:">机构</a></li>
+                            <li class="divider"></li>
+                            <li data-val="作品"><a href="javascript:">作品</a></li>
+                          </ul>
+                        </div>
+                    </div>
+
+              </div>
+              <div class="col-sm-6">
+                <ul id="treeDemo" class="ztree" style="margin: 0 auto;"></ul>
+              </div>
+              <div class="col-sm-12">
+                <div style="border-top: 1px solid rgba(0,0,0,0.2);margin-top: 20px;padding-top: 10px; margin-bottom: 20px;" class="text-center">
+                  <router-link to="/cosplay/list" tag="button" type="button" class="btn btn-primary">Cancel</router-link>
+                  <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+              </div>
+          </div>
+
+      </div>
+    </form>
   </div>
 
 </template>
@@ -155,6 +173,14 @@
       function removeHoverDom(treeId, treeNode) {
         $("#addBtn_"+treeNode.tId).unbind().remove();
       };
+
+
+
+
+
+      $("#menu").on("click","li",function () {
+        $("#value_cos").text($(this).attr("data-val"));
+      })
 
 
     }

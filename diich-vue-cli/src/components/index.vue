@@ -75,7 +75,7 @@
         </div>
 
       </div>
-      <div class="col-sm-10" style="background: rgba(247,247,247,1); min-height: 700px;">
+      <div class="col-sm-10" style="background: rgba(247,247,247,1);">
         <div class="row">
           <div class="col-sm-12">
             <div class="row box9_12">
