@@ -50,6 +50,6 @@
     -o-transition: all .2s;
     transition: all .2s;
   }
-
 </style>
+
 

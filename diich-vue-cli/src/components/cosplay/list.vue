@@ -104,10 +104,6 @@
 <script>
 
 
-
-
-
-
   export default {
     name: 'list',
     data () {                             //数据
@@ -158,6 +154,7 @@
         }
 
       }
+
     }
   }
 

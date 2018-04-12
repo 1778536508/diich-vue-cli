@@ -11,6 +11,7 @@
  * Date: 2017-06-19
  */
 (function ($) {
+  console.log('ztree.core.js');
     var settings = {}, roots = {}, caches = {},
         //default consts of core
         _consts = {
