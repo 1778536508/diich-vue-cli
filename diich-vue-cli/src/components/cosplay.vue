@@ -51,5 +51,3 @@
     transition: all .2s;
   }
 </style>
-
-

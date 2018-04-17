@@ -332,6 +332,3 @@
     font-weight: bold;
   }
 </style>
-
-
-
