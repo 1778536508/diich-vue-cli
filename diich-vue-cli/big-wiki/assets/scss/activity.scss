@@ -1,0 +1,44 @@
+@charset "utf-8";
+//活动列表
+.activity-item {
+  position: relative;
+  -webkit-transition: all 1s ease-in-out;
+  border-bottom: 1px solid rgba(221, 221, 221, 0.6);
+  margin:0 28rem/$font-size-base;
+  .link {
+    padding: 32rem/$font-size-base 0;
+    display: block;
+    img {
+      width: 100%;
+    }
+    .desc {
+      position: relative;
+      h3 {
+        @include fontSize(28rem);
+        color: #1b1b1b;
+        line-height: 33rem/$font-size-base;
+        margin-top: 11px;
+      }
+      .info {
+        @include fontSize(20rem);
+        line-height: 28rem/$font-size-base;
+        color: #aaa;
+        margin-top: 4px;
+        .time {
+          margin-left: 60px;
+        }
+      }
+      .icon-hot {
+        @include icon(url(../images/activity/activity-icon-recommend@2x.png), 58rem, 37rem);
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+  &:last-child {
+    border: 0;
+  }
+}
+
+

@@ -1,0 +1,74 @@
+@mixin footIcon($name){
+  @include icon(url(../images/#{$name}@2x.png), 40rem, 44rem);
+}
+
+
+
+footer {
+  display: flex;
+  @include height(107rem);
+  padding-top: 19rem/$font-size-base;
+  .link {
+    background: #fff;
+    flex: 1;
+    text-align: center;
+    @include fontSize(20rem);
+    color: #1b1b1b;
+    align-items: center;
+    justify-content: center;
+    padding-top: 16rem/$font-size-base;
+    position: relative;
+    i {
+      display: inline-block;
+      z-index: 2;
+      position: relative;
+      &.icon-home {
+        @include footIcon(footer-icon-home);
+      }
+      &.icon-news {
+        @include footIcon(footer-icon-news);
+      }
+      &.icon-cyclopedia {
+        @include footIcon(footer-icon-cyclopedia);
+      }
+      &.icon-midbg {
+        @include icon(url(../images/footer-icon-midbg@2x.png), 150rem, 112rem);
+        position: absolute;
+        top:-25rem/$font-size-base;
+        left: 50%;
+        margin-left: -150rem/(2*$font-size-base);
+        z-index: 1;
+      }
+      &.icon-activity {
+        @include footIcon(footer-icon-activity);
+      }
+      &.icon-activate {
+        @include footIcon(footer-icon-activate);
+      }
+    }
+    .txt {
+      position: relative;
+      margin-top: 8rem/$font-size-base;
+      z-index: 2;
+    }
+    &.active {
+      color: #4183ea;
+      .icon-home {
+        @include footIcon(footer-icon-home-active);
+      }
+      .icon-news {
+        @include footIcon(footer-icon-news-active);
+      }
+      .icon-cyclopedia {
+        @include footIcon(footer-icon-cyclopedia-active);
+      }
+      .icon-activity {
+        @include footIcon(footer-icon-activity-active);
+      }
+      .icon-activate {
+        @include footIcon(footer-icon-activate-active);
+      }
+    }
+  }
+}
+

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="wap-font-scale" content="no">
+    <title>首页</title>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <link rel="stylesheet" href="../../assets/css/home.css">
+    <script src="../../assets/js/swiper.min.js"></script>
+    <script src="../../assets/js/vue.min.js"></script>
+    <script src="../../assets/js/tpls.js"></script>
+</head>
+<body class="home">
+
+<div id="home">
+    
+    <wk-Header :title="headTitle"></wk-Header>
+    <!--//End 导航-->
+
+    <div class="slider">
+        <wk-swiper :swiper="focus"></wk-swiper>
+    </div>
+    <!--//End 轮播图-->
+
+    <div class="category">
+        <wk-search></wk-search>
+        <wk-category></wk-category>
+    </div>
+    <!--//End 分类-->
+
+    <div class="column">
+        <news-item :data="newsData"></news-item>
+    </div>
+    <!--//End 新闻资讯-->
+
+    <div class="column">
+        <wk-activity :activity="activityData"></wk-activity>
+    </div>
+    <!--//End 活动-->
+
+    <div class="merge">
+        <swiper-level :data="mergeData"></swiper-level>
+    </div>
+    <!--//End 轮播聚合-->
+
+    <wk-footer></wk-footer>
+    <!--//End 底部-->
+
+</div>
+
+
+
+
+<!--//End 底部-->
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="/pages/home/home-model.js"></script>
+<script>
+    var app = new Vue({
+        el: '#home',
+        data: {
+            headTitle: '首页', //导航标题
+            focus: [
+                //轮播图数据
+                // {imgUrl: 'http://172.16.1.76:3000/assets/pics/swiper.jpg'},
+                // {imgUrl: 'http://172.16.1.76:3000/assets/pics/swiper.jpg'},
+                // {imgUrl: 'http://172.16.1.76:3000/assets/pics/swiper.jpg'},
+                // {imgUrl: 'http://172.16.1.76:3000/assets/pics/swiper.jpg'}
+            ],
+            newsData:[
+                {name:'粒子对中国戏曲的表白，别样的古典气韵',source:'资讯／网易新闻',time:'刚刚',imgUrl:'../../assets/pics/news-1.jpg'},
+                {name:'非遗作品西藏巡演开幕上百幅代表性唐卡亮相林芝',source:'资讯／网易新闻',time:'2分钟前',imgUrl:'../../assets/pics/news-2.jpg'},
+                {name:'三代国家级“非遗”制茶技艺传承人的坚守',source:'资讯／网易新闻',time:'1小时前',imgUrl:'../../assets/pics/news-3.jpg'},
+            ],
+            activityData:[
+                {
+                    name:"传统制香技艺",
+                    link:"https://www.baidu.com",
+                    address:'活动／坐标：北京前门非遗馆',
+                    time:"2018/4/20",
+                    imgUrl:"../../assets/pics/activity.jpg"
+                },
+                {
+                    name:"传统制香技艺222",
+                    link:"https://www.baidu.com",
+                    address:'活动／坐标：北京前门非遗馆',
+                    time:"2018/4/20",
+                    imgUrl:"../../assets/pics/activity.jpg"
+                }
+            ],
+            mergeData:[
+                {
+                    name:"丝桐合为琴，中有太古声",
+                    flag:"项目",
+                    source:"百科／表演艺术",
+                    info:"丝桐合为琴，中有太古声。古声淡无味，不古声淡无味，不古声淡无味，不",
+                    imgUrl:"../../assets/pics/merge.jpg"
+                },
+                {
+                    name:"丝桐合为琴，中有太古声222",
+                    flag:"作品",
+                    source:"百科／表演艺术",
+                    info:"丝桐合为琴，中有太古声。古声淡无味，不古声淡无味，不古声淡无味，不",
+                    imgUrl:"../../assets/pics/merge.jpg"
+                },
+                {
+                    name:"丝桐合为琴，中有太古声3332",
+                    flag:"作品",
+                    source:"百科／表演艺术",
+                    info:"丝桐合为琴，中有太古声。古声淡无味，不古声淡无味，不古声淡无味，不",
+                    imgUrl:"../../assets/pics/merge.jpg"
+                }
+            ]
+        },
+        components: {
+            wkHeader: wkHeader,  //导航
+            wkSwiper: wkSwiper,  //轮播图
+            wkSearch: wkSearch,  //搜索框
+            wkCategory: wkCategory,  //五个分类图片
+            newsItem: newsItem,  //五个分类图片
+            wkActivity: wkActivity,  //活动
+            swiperLevel: swiperLevel,  //水平轮播
+            wkFooter: wkFooter,  //底部
+        },
+        mounted:function () {
+            this._getHomeSliderData();
+        },
+        methods:{
+            _getHomeSliderData:function () {
+                getSliderData("/data/slider.json",(res)=>{
+                    this.focus = res;
+                    //等待组件加载完成  执行方法
+                    this.$nextTick(function () {
+                        var swiper = new Swiper('.slider .swiper-container', {
+                            pagination: '.swiper-pagination',
+                            slidesPerView: 1,
+                            paginationClickable: true,
+                            spaceBetween: 30,
+                            loop: true
+                        });
+                    })
+
+                })
+
+            }
+        }
+    });
+</script>
+</body>
+</html>

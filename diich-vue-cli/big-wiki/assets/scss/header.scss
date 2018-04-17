@@ -1,0 +1,24 @@
+header {
+  padding: 0 76rem/$font-size-base;
+  @include height(76rem);
+  @include fontSize(28rem);
+  color: #1b1b1b;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  .menu {
+    @include square(76rem);
+    @include abs(left);
+    .icon {
+      @include icon(url(../images/header-icon-menu@2x.png), 38rem, 38rem);
+      @include abs(center);
+      @include marginTopMid(36rem);
+      @include marginLeftMid(36rem);
+    }
+  }
+}
+
+
+
+
+

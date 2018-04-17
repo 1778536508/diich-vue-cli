@@ -1,0 +1,57 @@
+@mixin width($num) {
+  width: $num/$font-size-base
+}
+
+@mixin height($num) {
+  height: $num/$font-size-base
+}
+
+@mixin fontSize($num) {
+  font-size: $num/$font-size-base
+}
+
+@mixin abs($type) {
+  position: absolute;
+  @if $type==left {
+    top: 0;
+    left: 0
+  }
+  @if $type==center {
+    top: 50%;
+    left: 50%
+  }
+  @if $type==vertical {
+    top:50%;
+  }
+}
+
+@mixin marginTopMid($num){
+  margin-top:-$num/(2*$font-size-base);
+}
+@mixin marginLeftMid($num){
+  margin-left:-$num/(2*$font-size-base);
+}
+
+
+
+
+@mixin absMarginMiddle($num){
+  margin-top: -$num/(2*$font-size-base);
+  margin-left: -$num/(2*$font-size-base);
+}
+
+
+
+
+@mixin square($num) {
+  width: $num/$font-size-base;
+  height: $num/$font-size-base;
+}
+
+@mixin icon($url, $width, $height) {
+  background:$url no-repeat;
+  -webkit-background-size: $width/($font-size-base) auto;
+  background-size: $width/($font-size-base) auto;
+  width: $width/($font-size-base);
+  height: $height/($font-size-base);
+}

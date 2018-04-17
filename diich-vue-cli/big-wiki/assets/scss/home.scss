@@ -1,0 +1,104 @@
+@import "reset";
+@import "mixinQX";
+@import "header";
+@import "swiper";
+@import "news";
+@import "activity";
+@import "footer";
+
+.home {
+  background: #f6f6f6;
+  .category {
+    background: #fff;
+    padding: 28rem/$font-size-base;
+    .search {
+      position: relative;
+      display: flex;
+      overflow: hidden;
+      input {
+        padding: 0 20px 0 70rem/$font-size-base;
+        @include height(79rem);
+        @include fontSize(30rem);
+        flex: 1;
+        background: #F1F1F2;
+      }
+      &:after {
+        content: '';
+        @include icon(url(../images/search-icon@2x.png), 27rem, 27rem);
+        @include abs(vertical);
+        @include marginTopMid(27rem);
+        margin-left: 20rem/$font-size-base;
+      }
+    }
+
+    .links {
+      display: flex;
+      margin: 22rem/$font-size-base 0 20px 0;
+      .item {
+        @include fontSize(20rem);
+        text-align: center;
+        color: #1b1b1b;
+        flex: 1;
+        img {
+          @include width(60rem);
+        }
+        .txt {
+          margin-top: 13rem/$font-size-base;
+          overflow:hidden;
+          text-overflow:ellipsis;
+          display:-webkit-box;
+          -webkit-box-orient:vertical;
+          -webkit-line-clamp:2;
+        }
+      }
+    }
+  }
+
+  .column {
+    background: #fff;
+    margin-top: 6rem/$font-size-base;
+  }
+
+  .merge {
+    padding: 32rem/$font-size-base 0;
+    .swiper-slide {
+      @include width(498rem);
+      background: #fff;
+      margin-left: 28rem/$font-size-base;
+      .img {
+        font-size: 0;
+        img {
+          width: 100%;
+        }
+        .flag {
+          padding: 10rem/$font-size-base 20rem/$font-size-base;
+          border: 1px #fff solid;
+          border-radius: 4px;
+          position: absolute;
+          top: 20rem/$font-size-base;
+          left: 20rem/$font-size-base;
+          background: rgba(0,0,0,0.28);
+          @include fontSize(20rem);
+          color: #E5DBC9;
+        }
+      }
+      .desc {
+        padding: 23px 20px;
+        color: #aaa;
+        @include fontSize(20rem);
+        h3 {
+          @include fontSize(28rem);
+          color: #1b1b1b;
+          line-height: 33rem/$font-size-base;
+          margin-bottom: 8px;
+        }
+        .info {
+          line-height: 28rem/$font-size-base;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+}
